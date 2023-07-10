@@ -28,6 +28,7 @@
         transition: 0.5s;
         
     }
+    
 </style>
 <body>
     <div id="app">

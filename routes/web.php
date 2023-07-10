@@ -103,3 +103,5 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/view_announcements', 'AnnouncementController@view_announcements');
 
 });
+
+Route::post('/post', 'PostController@post');

@@ -39,10 +39,15 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/"
+            
         },
+        
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {
@@ -64,4 +69,5 @@
             "@php artisan key:generate --ansi"
         ]
     }
+    
 }

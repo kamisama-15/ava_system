@@ -35,13 +35,19 @@
                             </div>
                             <div class="form-group">
                                 <label class="mb-2" for="password">{{ __('Password') }}</label>
-                                <input id="password" type="password" class="form-control mb-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <div class="input-group">
+                                  <input id="password" type="password" class="form-control mb-3 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                  <div class="input-group-append">
+                                    <button class="btn " type="button" id="togglePassword"><i class="fas fa-eye"></i></button>
+                                  </div>
+                                </div>
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                  <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                  </span>
                                 @enderror
-                            </div>
+                              </div>
+                              
                             <div class="form-group mb-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -75,5 +81,19 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#togglePassword').click(function() {
+      var passwordField = $('#password');
+      var fieldType = passwordField.attr('type');
 
+      if (fieldType === 'password') {
+        passwordField.attr('type', 'text');
+      } else {
+        passwordField.attr('type', 'password');
+      }
+    });
+  });
+</script>
 @endsection
